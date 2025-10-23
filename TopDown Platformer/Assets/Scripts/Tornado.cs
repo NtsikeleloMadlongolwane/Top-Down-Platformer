@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class Tornado : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private PlayerMovemenr playerScript;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        playerScript = collision.GetComponent<PlayerMovemenr>();
+
+        playerScript.isInGeyser = true;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        playerScript = collision.GetComponent<PlayerMovemenr>();
+
+        playerScript.isInGeyser = false;
     }
 }

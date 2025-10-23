@@ -24,12 +24,24 @@ public class PlayerMovemenr : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Special Effects")]
-    // movement effects
+        // movement effects
+    // normal movement
     public float currentJumpingPower = 16f;
     public float currentspeed = 8f;
 
-        //Attachments
+    // dashing
+    [Header("Dash Settings")]
+    private bool isDashing;
+
+    public bool canDash = true;  
+    public float dashingPower = 24f;
+    public float dashingTime = 0.2f;
+    public float dashingCoolDown = 1f;
+    public TrailRenderer tr;
+
+    //Attachments
     // jet pack
+    [Header("JetPack Settings")]
     public GameObject jetPackPNG;
     public bool hasJetPack = false;
     public float jetPackSpeed = 16f;
@@ -38,6 +50,7 @@ public class PlayerMovemenr : MonoBehaviour
     // geyser
     public bool isInGeyser = false;
     public float geyserSpeed = 10f;
+
 
     private void Start()
     {
@@ -80,9 +93,19 @@ public class PlayerMovemenr : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, geyserSpeed);
         }
+
+        // dash input
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
     }
     private void FixedUpdate()
     {
+        if (isDashing)
+        {
+            return;
+        }
         rb.linearVelocity = new Vector2(horizontal * currentspeed, rb.linearVelocityY);
     }   
     private bool isGrounded()
@@ -103,5 +126,20 @@ public class PlayerMovemenr : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.linearVelocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
     }
 }
