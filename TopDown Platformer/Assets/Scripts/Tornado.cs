@@ -7,13 +7,18 @@ public class Tornado : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         playerScript = collision.GetComponent<PlayerMovemenr>();
-
-        playerScript.isInGeyser = true;
+        if(playerScript != null)
+        {
+            playerScript.isInGeyser = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         playerScript = collision.GetComponent<PlayerMovemenr>();
 
-        playerScript.isInGeyser = false;
+        if (playerScript != null)
+        {
+            playerScript.isInGeyser = false;
+        }
     }
 }

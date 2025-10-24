@@ -9,6 +9,9 @@ public class PlayerMovemenr : MonoBehaviour
     public float orignalspeed = 8f;
     public float originalJumpingPower = 16f;
     public float horizontalJumpForce = 8f;
+
+    public float coyoteTime = 0.2f;
+    public float coyoteTimeCounter;
     private bool isFacingRight = true;
     public bool canWallJump = false;
 
@@ -22,14 +25,18 @@ public class PlayerMovemenr : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
+    public Transform wallJumpDirection;
+
+    [Header("Respawn/Restart")]
+    public Vector3 respawnPoint;
+    public Transform currentPosition;
 
     [Header("Special Effects")]
         // movement effects
     // normal movement
     public float currentJumpingPower = 16f;
     public float currentspeed = 8f;
-
-    // dashing
+     
     [Header("Dash Settings")]
     private bool isDashing;
 
@@ -48,6 +55,7 @@ public class PlayerMovemenr : MonoBehaviour
 
     // Enviromental
     // geyser
+    [Header("Tornado Settings")]
     public bool isInGeyser = false;
     public float geyserSpeed = 10f;
 
@@ -73,13 +81,22 @@ public class PlayerMovemenr : MonoBehaviour
             currentMaterial = col.sharedMaterial;
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (isGrounded())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+        if (coyoteTimeCounter > 0 && Input.GetButtonDown("Jump"))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, currentJumpingPower);
         }
         if (Input.GetButtonUp("Jump") && rb.linearVelocityY > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, rb.linearVelocityY * 0.5f);
+            coyoteTimeCounter = 0f;
         }
 
         // jetcpack float
@@ -98,6 +115,11 @@ public class PlayerMovemenr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            HazardRespawn();
         }
     }
     private void FixedUpdate()
@@ -141,5 +163,15 @@ public class PlayerMovemenr : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
+    }
+
+    public void BallooPop(float balloonJumpPower)
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, balloonJumpPower);
+    }
+
+    public void HazardRespawn()
+    {
+        this.gameObject.transform.position = respawnPoint;
     }
 }
