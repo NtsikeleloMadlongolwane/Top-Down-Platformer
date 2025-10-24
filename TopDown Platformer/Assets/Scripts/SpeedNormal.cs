@@ -17,5 +17,8 @@ public class SpeedNormal : MonoBehaviour
         playerScript.currentspeed = playerScript.orignalspeed;
         playerScript.currentJumpingPower = playerScript.originalJumpingPower;
         spriteRenderer.sprite = normalSprite;
+
+        playerScript.hasJetPack = false;
+        playerScript.jetPackPNG.SetActive(false);
     }
 }

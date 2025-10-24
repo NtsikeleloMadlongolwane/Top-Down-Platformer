@@ -23,9 +23,22 @@ public class PlayerMovemenr : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    
+    // wall slid and wall jump
+
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    public Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
-    public Transform wallJumpDirection;
+
 
     [Header("Respawn/Restart")]
     public Vector3 respawnPoint;
@@ -68,7 +81,13 @@ public class PlayerMovemenr : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        Flip();
+        WallSlide();
+        WallJump();
+
+        if (!isWallJumping)
+        {
+            Flip();
+        }
 
         if (canWallJump && isOnWall())
         {
@@ -128,7 +147,10 @@ public class PlayerMovemenr : MonoBehaviour
         {
             return;
         }
-        rb.linearVelocity = new Vector2(horizontal * currentspeed, rb.linearVelocityY);
+        if (!isWallJumping)
+        {
+            rb.linearVelocity = new Vector2(horizontal * currentspeed, rb.linearVelocityY);
+        }
     }   
     private bool isGrounded()
     {
@@ -138,6 +160,56 @@ public class PlayerMovemenr : MonoBehaviour
     private bool isOnWall()
     {
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+    }
+    private void WallSlide()
+    {
+        if(isOnWall() && !isGrounded() && horizontal != 0f)
+        {
+            isWallSliding = true;
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void WallJump()
+    {
+        if(isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJumping));
+        }
+        else
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+
+        if(Input.GetButton("Jump") && wallJumpingCounter > 0f)
+        {
+            isWallJumping = true;
+            rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if(transform.localScale.x != wallJumpingDirection)
+            {
+                isFacingRight = !isFacingRight;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+            }
+
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+    }
+
+    private void StopWallJumping()
+    {
+        isWallJumping = false;
     }
     private void Flip()
     {
