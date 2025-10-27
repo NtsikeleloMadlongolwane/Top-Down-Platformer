@@ -43,6 +43,7 @@ public class PlayerMovemenr : MonoBehaviour
     [Header("Respawn/Restart")]
     public Vector3 respawnPoint;
     public Transform currentPosition;
+    public Transform RestartPosition;
 
     [Header("Special Effects")]
         // movement effects
@@ -139,6 +140,11 @@ public class PlayerMovemenr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             HazardRespawn();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.position = RestartPosition;
         }
     }
     private void FixedUpdate()
