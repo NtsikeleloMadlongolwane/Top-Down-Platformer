@@ -15,6 +15,7 @@ public class FollowPlayer : MonoBehaviour
     private int currentCheckpointIndex = 0;
     private bool isMoving = false;
     private bool hasRestarted = false;
+    public GameObject TimedHazards;
 
 
 
@@ -28,6 +29,7 @@ public class FollowPlayer : MonoBehaviour
     {
         if (isFollowing)
         {
+            TimedHazards.SetActive(false); ;
             transform.position = new Vector3(53.02f, player.position.y, -10f);
         }
 
@@ -39,6 +41,7 @@ public class FollowPlayer : MonoBehaviour
 
         if (isMoving && currentCheckpointIndex < checkpoints.Length)
         {
+            TimedHazards.SetActive(true);
             MoveToCheckpoint();
         }
 
@@ -68,14 +71,14 @@ public class FollowPlayer : MonoBehaviour
             currentCheckpointIndex--; // Go back one step
         }
 
-        transform.position = checkpoints[currentCheckpointIndex].position;
+        transform.position = new Vector3(53.02f, checkpoints[currentCheckpointIndex].position.y, checkpoints[currentCheckpointIndex].position.z);
         isMoving = false;
         StartCoroutine(StartCountdown());
     }
     public void RestartFromFirstCheckpoint()
     {
         currentCheckpointIndex = 0;
-        transform.position = checkpoints[0].position;
+        transform.position = new Vector3(53.02f, checkpoints[0].position.y, checkpoints[0].position.z);
         isMoving = false;
         StartCoroutine(StartCountdown());
     }

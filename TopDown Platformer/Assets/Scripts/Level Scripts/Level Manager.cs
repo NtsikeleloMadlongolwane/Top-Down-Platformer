@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject cameraGameObject;
+    //public GameObject cameraGameObject;
     public FollowPlayer followPlayer;
+    public PlayerMovemenr playerMovemenr;
     public void Timed()
     {
         followPlayer.IsTimed = true;
@@ -18,5 +19,11 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         Follow();
+    }
+
+    public void ResetCheck()
+    {
+        playerMovemenr.HazardRespawn();
+        followPlayer.ResetToLastCheckpoint();
     }
 }

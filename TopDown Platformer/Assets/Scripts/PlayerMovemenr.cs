@@ -43,7 +43,6 @@ public class PlayerMovemenr : MonoBehaviour
     [Header("Respawn/Restart")]
     public Vector3 respawnPoint;
     public Transform currentPosition;
-    public Transform RestartPosition;
 
     [Header("Special Effects")]
         // movement effects
@@ -73,7 +72,7 @@ public class PlayerMovemenr : MonoBehaviour
     public bool isInGeyser = false;
     public float geyserSpeed = 10f;
 
-
+    public FollowPlayer follow;
     private void Start()
     {
         col = GetComponent<Collider2D>();
@@ -140,11 +139,6 @@ public class PlayerMovemenr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             HazardRespawn();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            transform.position = RestartPosition;
         }
     }
     private void FixedUpdate()
@@ -250,6 +244,7 @@ public class PlayerMovemenr : MonoBehaviour
 
     public void HazardRespawn()
     {
-        this.gameObject.transform.position = respawnPoint;
+        transform.position = respawnPoint;
+        follow.ResetToLastCheckpoint();
     }
 }
