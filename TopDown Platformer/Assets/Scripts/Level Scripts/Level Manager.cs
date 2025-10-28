@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -26,5 +27,15 @@ public class LevelManager : MonoBehaviour
     {
         followPlayer.isFollowing = true;
         followPlayer.IsTimed = false;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void QuitLevel()
+    {
+        Application.Quit();
     }
 }

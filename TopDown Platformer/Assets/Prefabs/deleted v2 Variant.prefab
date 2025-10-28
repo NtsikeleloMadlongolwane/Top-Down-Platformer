@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 122782863256566501, guid: 91adeb9b15dfe854e9c2bef7a130d068, type: 3}
       propertyPath: deletingtImer
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1074044738092412079, guid: 91adeb9b15dfe854e9c2bef7a130d068, type: 3}
       propertyPath: m_Size.x

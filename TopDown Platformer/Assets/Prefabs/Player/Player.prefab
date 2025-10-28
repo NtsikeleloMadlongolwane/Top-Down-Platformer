@@ -331,9 +331,9 @@ MonoBehaviour:
   tr: {fileID: 6575764717412981381}
   jetPackPNG: {fileID: 7245721046408800736}
   hasJetPack: 0
-  jetPackSpeed: 16
+  jetPackSpeed: 12
   isInGeyser: 0
-  geyserSpeed: 10
+  geyserSpeed: 12
   follow: {fileID: 0}
 --- !u!96 &6575764717412981381
 TrailRenderer:
