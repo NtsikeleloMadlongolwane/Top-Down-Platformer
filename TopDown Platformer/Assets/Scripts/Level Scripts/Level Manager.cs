@@ -26,6 +26,5 @@ public class LevelManager : MonoBehaviour
     {
         followPlayer.isFollowing = true;
         followPlayer.IsTimed = false;
-        Debug.Log($"[{nameof(LevelManager)}] This is a log message.");
     }
 }
