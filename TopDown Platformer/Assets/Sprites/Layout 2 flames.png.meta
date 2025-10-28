@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 763c48e360bd2804286c0c204d95aebf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8876541471461495590
+    second: Layout 2 flames_0
+  - first:
+      213: -1082575587648967532
+    second: Layout 2 flames_1
+  - first:
+      213: -1141773316117570742
+    second: Layout 2 flames_2
+  - first:
+      213: -1949509788775556682
+    second: Layout 2 flames_3
+  - first:
+      213: 3992703372767721339
+    second: Layout 2 flames_4
+  - first:
+      213: -1918231411929770506
+    second: Layout 2 flames_5
+  - first:
+      213: 4230346952020501167
+    second: Layout 2 flames_6
+  - first:
+      213: 598731925651266882
+    second: Layout 2 flames_7
+  - first:
+      213: 1903874374383070662
+    second: Layout 2 flames_8
+  - first:
+      213: 355870445009656196
+    second: Layout 2 flames_9
+  - first:
+      213: 3273493791301272815
+    second: Layout 2 flames_10
+  - first:
+      213: 5032763130877558043
+    second: Layout 2 flames_11
+  - first:
+      213: 1301477197162906444
+    second: Layout 2 flames_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Layout 2 flames_0
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 56
+        width: 152
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6235c78307fcf2b70800000000000000
+      internalID: 8876541471461495590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_1
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c6caf1d3be9f0f0800000000000000
+      internalID: -1082575587648967532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_2
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4bdac6e73b9720f0800000000000000
+      internalID: -1141773316117570742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_3
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b9d2e11d23f1f4e0800000000000000
+      internalID: -1949509788775556682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_4
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77f253309ee86730800000000000000
+      internalID: 3992703372767721339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_5
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f51eeea1b21165e0800000000000000
+      internalID: -1918231411929770506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_6
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa2a6d7b32635ba30800000000000000
+      internalID: 4230346952020501167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_7
+      rect:
+        serializedVersion: 2
+        x: 1858
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24d1120a38f1f4800800000000000000
+      internalID: 598731925651266882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_8
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd621608abeb6a10800000000000000
+      internalID: 1903874374383070662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_9
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 56
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4895cd4c84e40f400800000000000000
+      internalID: 355870445009656196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_10
+      rect:
+        serializedVersion: 2
+        x: 2318
+        y: 56
+        width: 152
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe485fc6249cd6d20800000000000000
+      internalID: 3273493791301272815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_11
+      rect:
+        serializedVersion: 2
+        x: 2471
+        y: 56
+        width: 152
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1db3ae1767f7d540800000000000000
+      internalID: 5032763130877558043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layout 2 flames_12
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 56
+        width: 152
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c438a248d96cf0210800000000000000
+      internalID: 1301477197162906444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Layout 2 flames_0: 8876541471461495590
+      Layout 2 flames_1: -1082575587648967532
+      Layout 2 flames_10: 3273493791301272815
+      Layout 2 flames_11: 5032763130877558043
+      Layout 2 flames_12: 1301477197162906444
+      Layout 2 flames_2: -1141773316117570742
+      Layout 2 flames_3: -1949509788775556682
+      Layout 2 flames_4: 3992703372767721339
+      Layout 2 flames_5: -1918231411929770506
+      Layout 2 flames_6: 4230346952020501167
+      Layout 2 flames_7: 598731925651266882
+      Layout 2 flames_8: 1903874374383070662
+      Layout 2 flames_9: 355870445009656196
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -20,5 +20,7 @@ public class SpeedNormal : MonoBehaviour
 
         playerScript.hasJetPack = false;
         playerScript.jetPackPNG.SetActive(false);
+
+        playerScript.canWallJump = false;
     }
 }

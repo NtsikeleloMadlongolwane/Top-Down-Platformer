@@ -4,7 +4,7 @@ using System.Collections;
 public class TimedChallenge : MonoBehaviour
 {
 
-    public Transform[] checkpoints; // Set these in the Inspector
+    /*public Transform[] checkpoints; // Set these in the Inspector
     public float moveSpeed = 5f;
     public float countdownTime = 3f;
 
@@ -12,8 +12,8 @@ public class TimedChallenge : MonoBehaviour
     private bool isMoving = false;
     public void OnEnable()
     {
-        transform.position = checkpoints[0].position;
-        StartCoroutine(StartCountdown());
+        //transform.position = checkpoints[0].position;
+        //StartCoroutine(StartCountdown());
     }
 
     IEnumerator StartCountdown()
@@ -50,5 +50,5 @@ public class TimedChallenge : MonoBehaviour
             StartCoroutine(StartCountdown());
         }
     }
-
+    */
 }

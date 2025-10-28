@@ -51,6 +51,8 @@ public class PlayerMovemenr : MonoBehaviour
     public float currentspeed = 8f;
      
     [Header("Dash Settings")]
+    private SpriteRenderer spriteRenderer;
+    public Sprite normalSprite;
     private bool isDashing;
 
     public bool canDash = true;  
@@ -76,6 +78,7 @@ public class PlayerMovemenr : MonoBehaviour
     private void Start()
     {
         col = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentMaterial = materials[0];
     }
     void Update()
@@ -163,7 +166,7 @@ public class PlayerMovemenr : MonoBehaviour
     }
     private void WallSlide()
     {
-        if(isOnWall() && !isGrounded() && horizontal != 0f)
+        if(isOnWall() && !isGrounded() && horizontal != 0f && canWallJump)
         {
             isWallSliding = true;
             rb.linearVelocity = new Vector2(rb.linearVelocityX, Mathf.Clamp(rb.linearVelocityY, -wallSlidingSpeed, float.MaxValue));
@@ -235,6 +238,7 @@ public class PlayerMovemenr : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
+        spriteRenderer.sprite = normalSprite;
     }
 
     public void BallooPop(float balloonJumpPower)
@@ -245,6 +249,5 @@ public class PlayerMovemenr : MonoBehaviour
     public void HazardRespawn()
     {
         transform.position = respawnPoint;
-        follow.ResetToLastCheckpoint();
     }
 }

@@ -7,7 +7,6 @@ public class FollowPlayer : MonoBehaviour
     public bool isFollowing = true;
 
     public bool IsTimed = false;
-    private int counetr = 0;
     public Transform[] checkpoints; // Assign in Inspector
     public float moveSpeed = 5f;
     public float countdownTime = 3f;
@@ -17,29 +16,26 @@ public class FollowPlayer : MonoBehaviour
     private bool hasRestarted = false;
     public GameObject TimedHazards;
 
-
-
-    IEnumerator StartCountdown()
+    private void Start()
     {
-        yield return new WaitForSeconds(countdownTime);
-        isMoving = true;
+        IsTimed = false;
+        isFollowing = true;
     }
-
     void Update()
     {
         if (isFollowing)
         {
-            TimedHazards.SetActive(false); ;
             transform.position = new Vector3(53.02f, player.position.y, -10f);
+            TimedHazards.SetActive(false);
         }
 
-        if (!hasRestarted)
+        if (!hasRestarted && IsTimed)
         {
             RestartFromFirstCheckpoint();
             hasRestarted = true;
         }
 
-        if (isMoving && currentCheckpointIndex < checkpoints.Length)
+        if (isMoving && currentCheckpointIndex < checkpoints.Length && IsTimed)
         {
             TimedHazards.SetActive(true);
             MoveToCheckpoint();
@@ -81,5 +77,11 @@ public class FollowPlayer : MonoBehaviour
         transform.position = new Vector3(53.02f, checkpoints[0].position.y, checkpoints[0].position.z);
         isMoving = false;
         StartCoroutine(StartCountdown());
+        Debug.Log("This method is running for some reason");
+    }
+    IEnumerator StartCountdown()
+    {
+        yield return new WaitForSeconds(countdownTime);
+        isMoving = true;
     }
 }

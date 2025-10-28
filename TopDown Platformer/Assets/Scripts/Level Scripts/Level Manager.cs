@@ -5,6 +5,18 @@ public class LevelManager : MonoBehaviour
     //public GameObject cameraGameObject;
     public FollowPlayer followPlayer;
     public PlayerMovemenr playerMovemenr;
+    public void Start()
+    {
+     // Follow();
+    }
+
+    public void ResetCheck()
+    {
+        playerMovemenr.HazardRespawn();
+        followPlayer.ResetToLastCheckpoint();
+        Debug.Log("Respawned");
+    }
+
     public void Timed()
     {
         followPlayer.IsTimed = true;
@@ -12,18 +24,8 @@ public class LevelManager : MonoBehaviour
     }
     public void Follow()
     {
-        followPlayer.IsTimed = false;
         followPlayer.isFollowing = true;
-    }
-
-    void Start()
-    {
-        Follow();
-    }
-
-    public void ResetCheck()
-    {
-        playerMovemenr.HazardRespawn();
-        followPlayer.ResetToLastCheckpoint();
+        followPlayer.IsTimed = false;
+        Debug.Log($"[{nameof(LevelManager)}] This is a log message.");
     }
 }

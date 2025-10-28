@@ -10,7 +10,12 @@ public class DisappearingText : MonoBehaviour
     public GameObject[] Platforms;
     public GameObject textIsGone;
     public float deletingtImer;
+    public float textDelay = 2f;
 
+    private void Start()
+    {
+        highlightBar.SetActive(false);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -21,9 +26,9 @@ public class DisappearingText : MonoBehaviour
     }
     public IEnumerator DeleteText()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(textDelay);
         highlightBar.SetActive(true);
-        yield return new WaitForSeconds(deletingtImer - 1f);
+        yield return new WaitForSeconds(deletingtImer);
         highlightBar.SetActive(false);
 
         if(Platforms.Length != 0)
