@@ -249,5 +249,6 @@ public class PlayerMovemenr : MonoBehaviour
     public void HazardRespawn()
     {
         transform.position = respawnPoint;
+        follow.ResetToLastCheckpoint();
     }
 }
