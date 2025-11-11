@@ -235,3 +235,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6f7debb422e0b438fbd504a982b34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: -8394113603099261111, guid: b7b3a3059f073444abbbd9a3b44f02d3, type: 3}
+  dashSprite: {fileID: -4457363420528761453, guid: 6b4ffdc13f3685347adf9b29e565ef1b, type: 3}

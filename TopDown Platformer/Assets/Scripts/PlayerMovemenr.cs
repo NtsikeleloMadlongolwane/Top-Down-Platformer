@@ -20,6 +20,8 @@ public class PlayerMovemenr : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D currentMaterial;
     private Collider2D col;
 
+    public Sprite MagnetSkin;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -238,7 +240,7 @@ public class PlayerMovemenr : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
-        spriteRenderer.sprite = normalSprite;
+        ResetSprire();
     }
 
     public void BallooPop(float balloonJumpPower)
@@ -250,5 +252,17 @@ public class PlayerMovemenr : MonoBehaviour
     {
         transform.position = respawnPoint;
         follow.ResetToLastCheckpoint();
+    }
+
+    public void ResetSprire()
+    {
+        if (canWallJump)
+        {
+            spriteRenderer.sprite = MagnetSkin;
+        }
+        else 
+        {
+            spriteRenderer.sprite = normalSprite;
+        }
     }
 }

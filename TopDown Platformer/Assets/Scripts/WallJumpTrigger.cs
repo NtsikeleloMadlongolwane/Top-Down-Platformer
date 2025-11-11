@@ -19,11 +19,11 @@ public class WallJumpTrigger : MonoBehaviour
             spriteRenderer.sprite = metalSprite;
             Debug.Log("The player can now wall jump");
         }
-        else if (playerScript.canWallJump == true)
+      /*  else if (playerScript.canWallJump == true)
         {
             playerScript.canWallJump = false;
             spriteRenderer.sprite = normalSprite;
             Debug.Log("The player CAN NOT wall jump");
-        }
+        }*/
     }
 }
