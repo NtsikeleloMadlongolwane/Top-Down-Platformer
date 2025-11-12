@@ -264,6 +264,9 @@ public class PlayerMovemenr : MonoBehaviour
     {
         transform.position = respawnPoint;
         followPlayer.RespawnCam();
+        hasJetPack = false;
+        jetPackPNG.SetActive(false);
+        Debug.Log(hasJetPack);
     }
 
     public void ResetSprire()
