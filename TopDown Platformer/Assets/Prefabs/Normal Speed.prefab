@@ -235,5 +235,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acda87d30047547449295458d50bf863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSprite: {fileID: -8394113603099261111, guid: b7b3a3059f073444abbbd9a3b44f02d3, type: 3}
+  normalSprite: {fileID: 3132709245091185678, guid: 774b25aa2e007584aba474f05d5617c9, type: 3}
   newSpeed: 5

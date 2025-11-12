@@ -27,7 +27,7 @@ public class FollowPlayer : MonoBehaviour
         {
            // transform.position = new Vector3(53.02f, player.position.y, -10f); // level 2 follow
 
-            transform.position = new Vector3(player.position.x, player.position.y, -10f);
+            transform.position = new Vector3(91.93f, player.position.y, -10f);
 
             TimedHazards.SetActive(false);
         }

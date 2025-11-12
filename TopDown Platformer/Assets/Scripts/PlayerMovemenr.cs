@@ -67,6 +67,8 @@ public class PlayerMovemenr : MonoBehaviour
     // jet pack
     [Header("JetPack Settings")]
     public GameObject jetPackPNG;
+    public GameObject jetPackFlame;
+    public GameObject PickAxePNG;
     public bool hasJetPack = false;
     public float jetPackSpeed = 16f;
 
@@ -127,6 +129,11 @@ public class PlayerMovemenr : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && hasJetPack)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jetPackSpeed);
+            jetPackFlame.SetActive(true);
+        }
+        else
+        {
+            jetPackFlame.SetActive(false);
         }
 
         // jetcpack float
@@ -144,6 +151,15 @@ public class PlayerMovemenr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             HazardRespawn();
+        }
+
+        if (canWallJump)
+        {
+            PickAxePNG.SetActive(true);
+        }
+        else
+        {
+            PickAxePNG.SetActive(false);
         }
     }
     private void FixedUpdate()
@@ -240,7 +256,7 @@ public class PlayerMovemenr : MonoBehaviour
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;
-        ResetSprire();
+        spriteRenderer.sprite = normalSprite;
     }
 
     public void BallooPop(float balloonJumpPower)
@@ -258,11 +274,13 @@ public class PlayerMovemenr : MonoBehaviour
     {
         if (canWallJump)
         {
-            spriteRenderer.sprite = MagnetSkin;
+            PickAxePNG.SetActive(true);
         }
         else 
         {
             spriteRenderer.sprite = normalSprite;
         }
     }
+
+
 }
