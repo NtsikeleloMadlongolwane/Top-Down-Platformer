@@ -44,6 +44,7 @@ public class PlayerMovemenr : MonoBehaviour
 
     [Header("Respawn/Restart")]
     public Vector3 respawnPoint;
+    public FollowPlayer followPlayer;
     public Transform currentPosition;
 
     [Header("Special Effects")]
@@ -146,11 +147,6 @@ public class PlayerMovemenr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
-        }
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            HazardRespawn();
         }
 
         if (canWallJump)
@@ -267,7 +263,7 @@ public class PlayerMovemenr : MonoBehaviour
     public void HazardRespawn()
     {
         transform.position = respawnPoint;
-        follow.ResetToLastCheckpoint();
+        followPlayer.RespawnCam();
     }
 
     public void ResetSprire()

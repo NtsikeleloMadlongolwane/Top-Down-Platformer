@@ -4,87 +4,92 @@ using System.Collections;
 public class FollowPlayer : MonoBehaviour
 {
     public Transform player;
-    public bool isFollowing = true;
+    public bool isFollowing = false;
+    public float minY = 0f;
 
-    public bool IsTimed = false;
-    public Transform[] checkpoints; // Assign in Inspector
-    public float moveSpeed = 5f;
-    public float countdownTime = 3f;
 
-    private int currentCheckpointIndex = 0;
-    private bool isMoving = false;
-    private bool hasRestarted = false;
+    // new checkpoint system.
+    public Transform currentCheckPoint;
+    public Transform finalSpot;
+    public float RespawnCoolDown;
+    public float RiseSpeed = 2f;
     public GameObject TimedHazards;
+
+    public bool IsRising = false;
+
+    public bool isStopped = false;
 
     private void Start()
     {
-        IsTimed = false;
         isFollowing = true;
+        currentCheckPoint = null;
     }
     void Update()
     {
         if (isFollowing)
         {
+         
            // transform.position = new Vector3(53.02f, player.position.y, -10f); // level 2 follow
-
-            transform.position = new Vector3(91.93f, player.position.y, -10f);
-
-            TimedHazards.SetActive(false);
-        }
-
-        if (!hasRestarted && IsTimed)
-        {
-            RestartFromFirstCheckpoint();
-            hasRestarted = true;
-        }
-
-        if (isMoving && currentCheckpointIndex < checkpoints.Length && IsTimed)
-        {
-            TimedHazards.SetActive(true);
-            MoveToCheckpoint();
-        }
-
-    }
-
-    void MoveToCheckpoint()
-    {
-        Transform target = checkpoints[currentCheckpointIndex];
-        transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, target.position) < 0.1f)
-        {
-            currentCheckpointIndex++;
-
-            if (currentCheckpointIndex >= checkpoints.Length)
+           if(player.transform.position.y >= minY)
             {
-                isMoving = false; // Stop at last checkpoint
+                transform.position = new Vector3(91.93f, player.position.y, -10f);
+                TimedHazards.SetActive(false);
             }
         }
-    }
+  
+        //   New Checkpoint
 
-    // Call this method to reset to the last checkpoint and restart movement
-    public void ResetToLastCheckpoint()
-    {
-        if (currentCheckpointIndex > 0)
-        {
-            currentCheckpointIndex--; // Go back one step
+        if (IsRising)
+        {  
+            // Move towards the end point
+            transform.position = Vector3.MoveTowards(transform.position, finalSpot.position, RiseSpeed * Time.deltaTime);
         }
 
-        transform.position = new Vector3(53.02f, checkpoints[currentCheckpointIndex].position.y, checkpoints[currentCheckpointIndex].position.z);
-        isMoving = false;
-        StartCoroutine(StartCountdown());
+        if (isStopped)
+        {
+ 
+        }
+
     }
-    public void RestartFromFirstCheckpoint()
+
+    public IEnumerator StartRise()
     {
-        currentCheckpointIndex = 0;
-        transform.position = new Vector3(53.02f, checkpoints[0].position.y, checkpoints[0].position.z);
-        isMoving = false;
-        StartCoroutine(StartCountdown());
-        Debug.Log("This method is running for some reason");
+
+        isFollowing = false;
+        isStopped = false;
+        // stop followng player and start rise;
+        isFollowing = false;
+        IsRising = false;
+        yield return new WaitForSeconds(RespawnCoolDown);
+        TimedHazards.SetActive(true);
+        IsRising = true;
     }
-    IEnumerator StartCountdown()
+
+    public void StartChase()
     {
-        yield return new WaitForSeconds(countdownTime);
-        isMoving = true;
+        StartCoroutine(StartRise());
+    }
+    public void StopRise()
+    {
+        isStopped = true;
+        isFollowing = false;
+        // stop rising and follow player
+        IsRising = false;
+        TimedHazards.SetActive(false); ;
+    }
+
+    public void FollowNow()
+    {
+        isFollowing = true;
+
+        IsRising = false;
+        isStopped = false;
+    }
+
+    public void RespawnCam()
+    {
+            StopRise();
+            FollowNow();
+            //StartChase();
     }
 }
