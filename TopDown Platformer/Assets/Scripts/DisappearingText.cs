@@ -38,7 +38,7 @@ public class DisappearingText : MonoBehaviour
                 Platforms[i].SetActive(false);
             }
         }
-        Instantiate(textIsGone, new Vector3(53.02f, this.gameObject.transform.position.y, 0f), Quaternion.identity);
+        Instantiate(textIsGone, new Vector3(91.93f, this.gameObject.transform.position.y, 0f), Quaternion.identity);
         Destroy(gameObject);
     }
 
